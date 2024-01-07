@@ -47,17 +47,17 @@ struct segtree {
 		set(i, v, 0, 0, size);
 	}
 
-	int sum (int l, int r, int x, int lx, int rx) {
+	int query (int l, int r, int x, int lx, int rx) {
 		if (lx >= r || rx <= l) return 0;
 		if (lx >= l && rx <= r) return tree[x];
 		int mid = lx + (rx - lx) / 2;
-		int sum1 = sum(l, r, 2 * x + 1, lx, mid);
-		int sum2 = sum(l, r, 2 * x + 2, mid, rx);
+		int sum1 = query(l, r, 2 * x + 1, lx, mid);
+		int sum2 = query(l, r, 2 * x + 2, mid, rx);
 		return sum1 + sum2;
 	}
 
-	int sum (int l, int r) {
-		return sum(l, r, 0, 0, size);
+	int query (int l, int r) {
+		return query(l, r, 0, 0, size);
 	}
 
 	void print () {
