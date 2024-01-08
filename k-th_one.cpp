@@ -69,7 +69,7 @@ struct segtree {
 	}
 
 	int kth_one (int k) {
-		return kth_one (k, 0, size);
+		return kth_one(k, 0, size);
 	}
 
 	void print () {
